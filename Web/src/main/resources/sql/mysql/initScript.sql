@@ -8,7 +8,7 @@ USE instagram;
 
 -- MySQL dump 10.13  Distrib 5.6.27, for Win64 (x86_64)
 --
--- Host: localhost    Database: instagram2
+-- Host: localhost    Database: instagram
 -- ------------------------------------------------------
 -- Server version	5.6.27-log
 
