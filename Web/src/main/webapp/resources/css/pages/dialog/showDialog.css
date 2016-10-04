@@ -1,0 +1,7 @@
+img.dialogMemberImage {
+    height: 80px;
+}
+
+.noResize {
+    resize: none;
+}

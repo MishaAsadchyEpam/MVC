@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">113355</property>
+
+        <property name="javax.persistence.validation.mode">none</property>
+
+        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
+        <mapping class="myapp.entities.Albums"/>
+        <mapping class="myapp.entities.Forms"/>
+        <mapping class="myapp.entities.Friends"/>
+        <mapping class="myapp.entities.Images"/>
+        <mapping class="myapp.entities.Picturetags"/>
+        <mapping class="myapp.entities.Tags"/>
+        <mapping class="myapp.entities.Users"/>
+        <mapping class="myapp.entities.Votes"/>
+        <mapping class="myapp.entities.Params"/>
+        <mapping class="myapp.entities.Dialog"/>
+        <mapping class="myapp.entities.Message"/>
+        <mapping class="myapp.entities.UsersDialog"/>
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <Users userId="1" username="p_ami@mail.ru" password="113355" nickName="Misha1" confirmationToken="ct"
+           passwordSalt="salt" rolesString="ROLE_USER,ROLE_ADMIN"/>
+    <Users userId="2" username="p_ami@mail.by" password="113355" nickName="Misha2" confirmationToken="fail"
+           passwordSalt="salt" rolesString="ROLE_USER"/>
+<Albums/>
+<Dialogs/>
+<Forms/>
+<Friends/>
+<Images/>
+<Message/>
+<Params/>
+<PictureTags/>
+<Tags/>
+<UsersDialog/>
+<Votes/>
+</dataset>

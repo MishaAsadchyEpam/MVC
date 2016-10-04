@@ -1,0 +1,33 @@
+img.galleryImage {
+    max-height: 150px;
+    max-width: 225px;
+}
+
+div.imageContainer {
+    height: 320px;
+    width: 225px;
+}
+
+div.thumbnailContainer {
+    text-align: center;
+    height: 170px;
+    width: 245px;
+}
+
+div.imageInfoContainer {
+    margin-top: -20px;
+    max-height: 128px;
+    overflow: auto
+}
+
+span.badgeNormal {
+    font-size: 14px;
+}
+
+div.likeContainer {
+    height: 22px;
+}
+
+.center {
+    text-align: center;
+}
