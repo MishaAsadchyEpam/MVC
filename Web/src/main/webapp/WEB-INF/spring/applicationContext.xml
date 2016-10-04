@@ -1,6 +1,6 @@
-<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+<beans       xmlns:mvc="http://www.springframework.org/schema/mvc"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns="http://www.springframework.org/schema/beans"
              xmlns:context="http://www.springframework.org/schema/context"
 
              xmlns:tx="http://www.springframework.org/schema/tx"
@@ -14,142 +14,142 @@
              http://www.springframework.org/schema/tx/spring-tx.xsd"
         >
 
-    <beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <beans:property name="webBindingInitializer">
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="webBindingInitializer">
             <!-- Configures Spring MVC DataBinder instances -->
-            <beans:bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
-                <beans:property name="validator" ref="validator"/>
-            </beans:bean>
-        </beans:property>
-        <beans:property name="messageConverters">
-            <beans:array>
-                <beans:bean class = "org.springframework.http.converter.StringHttpMessageConverter">
-                    <beans:property name="supportedMediaTypes" value = "text/plain;charset=UTF-8" />
-                </beans:bean>
-            </beans:array>
-        </beans:property>
-    </beans:bean>
+            <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+                <property name="validator" ref="validator"/>
+            </bean>
+        </property>
+        <property name="messageConverters">
+            <array>
+                <bean class = "org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes" value = "text/plain;charset=UTF-8" />
+                </bean>
+            </array>
+        </property>
+    </bean>
 
-    <beans:bean id="propertyConfigurer"
+    <bean id="propertyConfigurer"
                 class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <beans:property name="locations">
-            <beans:list>
-                <beans:value>classpath:/properties/env.properties</beans:value>
-                <beans:value>classpath:/properties/emailConfig.properties</beans:value>
-                <beans:value>classpath:/properties/multipartConfig.properties</beans:value>
-                <beans:value>classpath:/properties/jdbcConfig.properties</beans:value>
-                <beans:value>classpath:/properties/localizationConfig.properties</beans:value>
-            </beans:list>
-        </beans:property>
+        <property name="locations">
+            <list>
+                <value>classpath:/properties/env.properties</value>
+                <value>classpath:/properties/emailConfig.properties</value>
+                <value>classpath:/properties/multipartConfig.properties</value>
+                <value>classpath:/properties/jdbcConfig.properties</value>
+                <value>classpath:/properties/localizationConfig.properties</value>
+            </list>
+        </property>
 
-    </beans:bean>
+    </bean>
 
     <!-- Creates the JSR-303 Validator -->
-    <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
     <context:component-scan base-package="myapp"/>
 
 
-    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <beans:property name="prefix" value="/pages/"/>
-        <beans:property name="suffix" value=".jsp"/>
-    </beans:bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
-    <beans:bean id="multipartResolver"
+    <bean id="multipartResolver"
                 class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <beans:property name="maxUploadSize" value="${multipart.maxUploadSize}"/>
-    </beans:bean>
+        <property name="maxUploadSize" value="${multipart.maxUploadSize}"/>
+    </bean>
 
-    <beans:bean class="org.springframework.mail.javamail.JavaMailSenderImpl" id="mailSender">
-        <beans:property name="host" value="${email.host}"/>
-        <beans:property name="port" value="${email.port}"/>
-        <beans:property name="username" value="${email.username}"/>
-        <beans:property name="password" value="${email.password}"/>
-        <beans:property name="defaultEncoding" value="${email.defaultEncoding}"/>
-        <beans:property name="javaMailProperties">
-            <beans:props>
-                <beans:prop key="mail.smtp.auth">${email.javaMailProperties.mail.smtp.auth}</beans:prop>
-                <beans:prop key="mail.smtp.starttls.enable">${email.javaMailProperties.mail.smtp.starttls.enable}
-                </beans:prop>
-            </beans:props>
-        </beans:property>
-    </beans:bean>
+    <bean class="org.springframework.mail.javamail.JavaMailSenderImpl" id="mailSender">
+        <property name="host" value="${email.host}"/>
+        <property name="port" value="${email.port}"/>
+        <property name="username" value="${email.username}"/>
+        <property name="password" value="${email.password}"/>
+        <property name="defaultEncoding" value="${email.defaultEncoding}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${email.javaMailProperties.mail.smtp.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">${email.javaMailProperties.mail.smtp.starttls.enable}
+                </prop>
+            </props>
+        </property>
+    </bean>
 
-    <annotation-driven/>
+    <mvc:annotation-driven/>
 
-    <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <beans:property name="url" value="jdbc:mysql://localhost:3306/instagram"/>
-        <beans:property name="username" value="root"/>
-        <beans:property name="password" value="113355"/>
-    </beans:bean>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/instagram"/>
+        <property name="username" value="root"/>
+        <property name="password" value="113355"/>
+    </bean>
 
-    <beans:bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 
-        <beans:property name="dataSource" ref="dataSource"/>
-        <beans:property name="configLocation" value="classpath:config/hibernate.cfg.xml"/>
-        <beans:property name="hibernateProperties">
-            <beans:props>
-                <beans:prop key="hibernate.dialect">${jdbc.hibernate.dialect}</beans:prop>
-                <beans:prop key="hibernate.show_sql">${jdbc.hibernate.show_sql}</beans:prop>
-            </beans:props>
-        </beans:property>
-    </beans:bean>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:config/hibernate.cfg.xml"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${jdbc.hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${jdbc.hibernate.show_sql}</prop>
+            </props>
+        </property>
+    </bean>
 
     <context:annotation-config/>
 
     <tx:annotation-driven/>
 
-    <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <beans:property name="sessionFactory" ref="sessionFactory"/>
-    </beans:bean>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
-    <resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <!--localization-->
-    <beans:bean id="messageSource"
+    <bean id="messageSource"
                 class="org.springframework.context.support.ResourceBundleMessageSource">
-        <beans:property name="basename" value="myLocalizationMessages"/>
-        <beans:property name="defaultEncoding" value="${localization.defaultEncoding}"/>
-        <beans:property name="useCodeAsDefaultMessage" value="true"/>
-    </beans:bean>
+        <property name="basename" value="myLocalizationMessages"/>
+        <property name="defaultEncoding" value="${localization.defaultEncoding}"/>
+        <property name="useCodeAsDefaultMessage" value="true"/>
+    </bean>
 
-    <beans:bean id="localeChangeInterceptor"
+    <bean id="localeChangeInterceptor"
                 class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-        <beans:property name="paramName" value="${localization.paramName}"/>
-    </beans:bean>
+        <property name="paramName" value="${localization.paramName}"/>
+    </bean>
 
-    <beans:bean id="localeResolver"
+    <bean id="localeResolver"
                 class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-        <beans:property name="defaultLocale" value="${localization.defaultLocale}"/>
-    </beans:bean>
+        <property name="defaultLocale" value="${localization.defaultLocale}"/>
+    </bean>
 
-    <beans:bean id="handlerMapping"
+    <bean id="handlerMapping"
                 class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-        <beans:property name="interceptors" ref="localeChangeInterceptor"/>
-    </beans:bean>
+        <property name="interceptors" ref="localeChangeInterceptor"/>
+    </bean>
 
-    <interceptors>
-        <beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-            <beans:property name="paramName" value="${localization.paramName}"/>
-        </beans:bean>
-        <interceptor>
-            <mapping path="/picturetags/add/**"/>
-            <mapping path="/albums/**"/>
-            <mapping path="/user/**"/>
-            <mapping path="/gallery/getPage/**"/>
-            <mapping path="/"/>
-            <mapping path="/images/edit/**"/>
-            <mapping path="/images/delete/**"/>
-            <mapping path="/users/**"/>
-            <mapping path="/dialog/**"/>
-            <mapping path="/forms/**"/>
-            <mapping path="/forms/edit/**"/>
-            <mapping path="/friends/"/>
-            <beans:ref bean="mediaFolderHandlerInterceptorAdapter"/>
-        </interceptor>
-    </interceptors>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="${localization.paramName}"/>
+        </bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/picturetags/add/**"/>
+            <mvc:mapping path="/albums/**"/>
+            <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/gallery/getPage/**"/>
+            <mvc:mapping path="/"/>
+            <mvc:mapping path="/images/edit/**"/>
+            <mvc:mapping path="/images/delete/**"/>
+            <mvc:mapping path="/users/**"/>
+            <mvc:mapping path="/dialog/**"/>
+            <mvc:mapping path="/forms/**"/>
+            <mvc:mapping path="/forms/edit/**"/>
+            <mvc:mapping path="/friends/"/>
+            <ref bean="mediaFolderHandlerInterceptorAdapter"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!--localization-->
 
-</beans:beans>
+</beans>
