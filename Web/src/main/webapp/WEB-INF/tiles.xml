@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <definition name="myapp.adminPageTemplate" template="/layouts/admin.jsp">
+        <put-attribute name="sharedHeader" value="/pages/partial/shared/masterPages/user/_userMasterHeader.jsp" />
+        <put-attribute name="sharedBody" value="/pages/partial/shared/masterPages/admin/_adminMasterBody.jsp" />
+        <put-attribute name="sharedFooter" value="/pages/partial/shared/masterPages/user/_userMasterFooter.jsp" />
+    </definition>
+
+    <definition name="myapp.admin.index" extends="myapp.adminPageTemplate">
+        <put-attribute name="title" value="Admin zone" />
+        <put-attribute name="body" value="" />
+    </definition>
+
+    <definition name="myapp.tags.index" extends="myapp.adminPageTemplate">
+        <put-attribute name="title" value="Tags management" />
+        <put-attribute name="header" value="/pages/partial/shared/_bootstrapStyles.jsp" />
+        <put-attribute name="body" value="/pages/partial/views/tags/index.jsp" />
+    </definition>
+
+</tiles-definitions>
