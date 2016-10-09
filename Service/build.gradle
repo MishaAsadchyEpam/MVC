@@ -1,0 +1,6 @@
+
+description = ''
+dependencies {
+  compile project(':Dao')
+  compile project(':Model')
+}

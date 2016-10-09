@@ -1,0 +1,10 @@
+rootProject.name = 'SpringSocialArtifactId'
+include ':Web'
+include ':Service'
+include ':Model'
+include ':Dao'
+
+project(':Web').projectDir = "$rootDir/Web" as File
+project(':Service').projectDir = "$rootDir/Service" as File
+project(':Model').projectDir = "$rootDir/Model" as File
+project(':Dao').projectDir = "$rootDir/Dao" as File
