@@ -20,11 +20,9 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-        "file:Web/src/main/webapp/WEB-INF/mvc-dispatcher-servlet" +
-                ".xml",
-        "file:Web/src/main/webapp/WEB-INF/spring/application" +
-                "-security.xml",
-        "file:Web/src/main/webapp/WEB-INF/spring/applicationContext.xml"
+        "classpath:spring/mvc-dispatcher-servlet.xml",
+        "classpath:spring/application-security.xml",
+        "classpath:spring/applicationContext.xml"
 })
 @WebAppConfiguration
 @TestExecutionListeners({
@@ -90,7 +88,7 @@ public class AccountControllerIntegrationTestConfirmation {
         // add specified behavior for mocks
 
         // tested method call
-        mockMvc.perform(get("/account/confirmation/1/ct"))
+        mockMvc.perform(get("/account/confirmation/2/ct"))
                 .andExpect(view().name("/account/confirmationFail"));
 
         // verify stage

@@ -1,5 +1,3 @@
-USE instagram;
-
 DROP DATABASE IF EXISTS instagram;
 
 CREATE DATABASE `instagram` /*!40100 DEFAULT CHARACTER SET utf8 */;
